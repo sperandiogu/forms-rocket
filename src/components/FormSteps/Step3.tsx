@@ -1,71 +1,144 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Para navegação
+import FormHeader from "../FormHeader";
 
 interface Step3Props {
-  data: any;
+  data: any; // Dados coletados dos steps
   onPrevious: () => void;
-  onSubmit: () => void;
+  onFileUpload: (file: File) => void;
 }
 
-const Step3: React.FC<Step3Props> = ({ onPrevious, onSubmit }) => {
+const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
+  const navigate = useNavigate();
+  const pixKey =
+    "00020126520014BR.GOV.BCB.PIX0130eventos@lagoinhajundiai.com.br5204000053039865406340.005802BR5901N6001C62140510RCKTCAMP256304DA2Fr";
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+
+  const copyPixKey = () => {
+    navigator.clipboard
+      .writeText(pixKey)
+      .then(() => alert("Chave Pix copiada para a área de transferência!"))
+      .catch((err) => alert("Erro ao copiar a chave Pix: " + err));
+  };
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      setUploadedFile(file);
+      onFileUpload(file);
+    }
+  };
+
+  const handleFinish = async () => {
+    // Enviar os dados para o webhook
+    try {
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("birthDate", data.birthDate);
+      formData.append("phone", data.phone);
+      formData.append("guardianName", data.guardianName);
+      formData.append("guardianPhone", data.guardianPhone);
+      formData.append("medicalInfo", data.medicalInfo);
+      if (uploadedFile) {
+        formData.append("proofOfPayment", uploadedFile); // Adiciona o arquivo
+      }
+
+      const response = await fetch("https://hook.us1.make.com/g4y47j7es1otxvcg2w9p35lm77m3fu9x", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao enviar os dados para o webhook.");
+      }
+
+      // Redireciona para a página de "Obrigado" após o envio bem-sucedido
+      navigate("/obrigado");
+    } catch (error) {
+      console.error(error);
+      alert("Ocorreu um erro ao finalizar a inscrição. Tente novamente.");
+    }
+  };
+
   return (
-    <form className="form-wrapper">
-      <h1 className="form-title">Pagamento</h1>
+    <form className="form-wrapper step3-form">
+      <FormHeader />
+      <h1 className="form-title">Informações de pagamento</h1>
       <p className="form-subtitle">
         Escaneie o QR Code com o app do seu banco ou copie o código Pix para
         concluir o pagamento.
       </p>
-      <div className="form-group">
+      <div className="qr-code-container">
         <img
           src="/imgs/qr-code-rocket.png"
           alt="QR Code"
-          style={{
-            maxWidth: "100%",
-            borderRadius: "8px",
-            border: "1px solid #cccccc",
-            padding: "10px",
-            backgroundColor: "#ffffff",
-          }}
+          className="qr-code-image"
         />
       </div>
-      <div className="form-group">
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: "16px",
-            color: "#333",
-            lineHeight: "1.5",
-            wordWrap: "break-word",
-            overflowWrap: "break-word", // Garante quebra correta em palavras longas
-          }}
-        >
+      <div className="pix-key">
+        <p>
           <strong>Pix Copia-e-Cola:</strong>
           <br />
-          <span
-            style={{
-              display: "inline-block",
-              wordBreak: "break-word", // Quebra as palavras longas para caber na tela
-              textAlign: "center",
-              width: "100%", // Mantém alinhamento
-            }}
-          >
-            00020126520014BR.GOV.BCB.PIX0130eventos@lagoinhajundiai.com.br5204000053039865406340.005802BR5901N6001C62140510RCKTCAMP256304DA2Fr
-          </span>
+          {pixKey}
         </p>
       </div>
+
+      <div className="form-group">
+        <button
+          type="button"
+          className="form-button upload"
+          onClick={() => fileInputRef.current?.click()}
+        >
+          Enviar Comprovante
+        </button>
+        <input
+          type="file"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          accept=".jpg,.jpeg,.png,.pdf"
+          onChange={handleFileUpload}
+        />
+        {uploadedFile && (
+          <div className="uploaded-file-preview">
+            <p>Arquivo carregado: {uploadedFile.name}</p>
+            {uploadedFile.type.startsWith("image/") ? (
+              <img
+                src={URL.createObjectURL(uploadedFile)}
+                alt="Prévia do arquivo"
+                className="file-preview-image"
+              />
+            ) : (
+              <p className="file-preview-text">
+                Não é possível pré-visualizar este arquivo.
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+
       <div className="form-button-group">
+        <button
+          type="button"
+          className="form-button copy"
+          onClick={copyPixKey}
+        >
+          Copiar Chave Pix
+        </button>
+        <button
+          type="button"
+          className="form-button next"
+          onClick={handleFinish}
+        >
+          Finalizar Inscrição
+        </button>
         <button
           type="button"
           className="form-button previous"
           onClick={onPrevious}
         >
           ← Voltar
-        </button>
-        <button
-          type="button"
-          className="form-button next"
-          onClick={onSubmit}
-        >
-          Finalizar
         </button>
       </div>
     </form>

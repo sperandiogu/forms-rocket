@@ -23,9 +23,9 @@ const FormWrapper: React.FC = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 1)); // Retrocede até o primeiro step
   };
 
-  const handleSubmit = async () => {
-    // Enviar dados para o backend
-    console.log("Dados enviados:", formData);
+  const handleFileUpload = (file: File) => {
+    // Aqui você pode lidar com o arquivo enviado (ex.: enviar ao servidor)
+    console.log("Arquivo enviado:", file);
   };
 
   return (
@@ -49,7 +49,7 @@ const FormWrapper: React.FC = () => {
         <Step3
           data={formData}
           onPrevious={handlePrevious}
-          onSubmit={handleSubmit}
+          onFileUpload={handleFileUpload} // Passa o callback para o Step3
         />
       )}
     </div>

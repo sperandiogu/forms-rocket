@@ -1,4 +1,5 @@
 import React from "react";
+import FormHeader from "../FormHeader";
 
 interface Step2Props {
 data: { guardianName: string; guardianPhone: string; medicalInfo: string };
@@ -14,7 +15,11 @@ setData: React.Dispatch<React.SetStateAction<any>>;
 
       return (
       <form>
+        <FormHeader />
         <h1 className="form-title">Informações do Responsável</h1>
+        <p className="form-subtitle">
+          Precisamos de algumas informações dos seus responsáveis, assim temos um contato mais rápido com eles!
+        </p>
         <div className="form-group">
           <label>Nome do Responsável</label>
           <input type="text" name="guardianName" placeholder="Nome do responsável" value={data.guardianName}

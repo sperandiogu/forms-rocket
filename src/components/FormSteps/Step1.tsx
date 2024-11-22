@@ -1,4 +1,5 @@
 import React from "react";
+import FormHeader from "../FormHeader";
 
 interface Step1Props {
   data: { name: string; birthDate: string; phone: string };
@@ -13,11 +14,8 @@ const Step1: React.FC<Step1Props> = ({ data, setData, onNext }) => {
 
   return (
     <form>
-      <h1 className="form-title"><b>RCKT CAMP 2025 | </b>Se prepare para o <b>AVIVAMENTO</b></h1>
-      <p className="form-subtitle">
-        Viveremos coisas incríveis e precisamos que você preencha todas as
-        informações, assim poderemos te direcionar da melhor maneira.
-      </p>
+      <FormHeader />
+      <h1 className="form-title">Informações Pessoais</h1>
       <div className="form-group">
         <label>Qual seu nome completo?</label>
         <input
