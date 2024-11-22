@@ -1,16 +1,14 @@
 .sidebar-logo {
+  margin-bottom: 40px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .sidebar-logo img {
-  width: 88px;
-  height: auto;
-  /* Ajusta proporcionalmente */
+  width: 120px;
+  height: auto; /* Ajusta proporcionalmente */
 }
 
 .sidebar-content {
-  text-align: center;
 }
 
 .sidebar-content h1 {
@@ -25,7 +23,6 @@
 }
 
 .sidebar-footer {
-  text-align: center;
   margin-top: 20px;
 }
 
@@ -43,18 +40,18 @@
 /* Ajustes em telas menores */
 @media (max-width: 768px) {
   .sidebar-content h1 {
-    font-size: 28px;
-    /* Reduz o tamanho do título */
+    font-size: 28px; /* Reduz o tamanho do título */
+    text-align: center;
   }
 
   .sidebar-content p,
   .sidebar-footer p {
-    font-size: 16px;
-    /* Reduz o texto */
+    font-size: 16px; /* Reduz o texto */
+    text-align: center;
   }
 
   .sidebar-footer h2 {
-    font-size: 28px;
-    /* Reduz o subtítulo */
+    font-size: 28px; /* Reduz o subtítulo */
+    text-align: center;
   }
 }

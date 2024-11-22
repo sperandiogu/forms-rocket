@@ -1,9 +1,11 @@
 .app-container {
   display: flex;
   height: 100vh;
+  font-family: "Inter", serif;
   /* Altura total da tela */
   flex-direction: row;
   /* Por padrão, layout em linha */
+
 }
 
 .sidebar {

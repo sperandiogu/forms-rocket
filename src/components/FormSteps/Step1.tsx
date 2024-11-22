@@ -13,7 +13,7 @@ const Step1: React.FC<Step1Props> = ({ data, setData, onNext }) => {
 
   return (
     <form>
-      <h1 className="form-title">RCKT CAMP 2025 | Se prepare para o AVIVAMENTO</h1>
+      <h1 className="form-title"><b>RCKT CAMP 2025 | </b>Se prepare para o <b>AVIVAMENTO</b></h1>
       <p className="form-subtitle">
         Viveremos coisas incríveis e precisamos que você preencha todas as
         informações, assim poderemos te direcionar da melhor maneira.
