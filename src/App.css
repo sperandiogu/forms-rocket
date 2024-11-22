@@ -1,0 +1,61 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  /* Altura total da tela */
+  flex-direction: row;
+  /* Por padrão, layout em linha */
+}
+
+.sidebar {
+  flex: 0 0 30%;
+  /* Sidebar ocupa 30% da largura */
+  max-width: 520px;
+  /* Limite máximo da largura */
+  min-width: 250px;
+  /* Largura mínima para telas pequenas */
+  background-color: #476df4;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+
+.main-content {
+  flex: 1;
+  /* Ocupa o restante do espaço */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    /* Empilha a sidebar acima do conteúdo */
+    height: auto;
+    /* Permite altura dinâmica */
+  }
+
+  .sidebar {
+    width: 100%;
+    /* Ocupa toda a largura */
+    max-width: none;
+    /* Remove o limite máximo */
+    min-width: unset;
+    /* Remove o limite mínimo */
+    height: auto;
+    /* Ajusta altura dinamicamente */
+    padding: 20px;
+    /* Reduz padding em telas pequenas */
+  }
+
+  .main-content {
+    padding: 20px;
+    /* Reduz padding no conteúdo */
+  }
+}

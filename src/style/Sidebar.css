@@ -1,0 +1,60 @@
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-logo img {
+  width: 88px;
+  height: auto;
+  /* Ajusta proporcionalmente */
+}
+
+.sidebar-content {
+  text-align: center;
+}
+
+.sidebar-content h1 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.sidebar-content p {
+  font-size: 18px;
+  color: #dcdcdc;
+}
+
+.sidebar-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sidebar-footer h2 {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.sidebar-footer p {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #dcdcdc;
+}
+
+/* Ajustes em telas menores */
+@media (max-width: 768px) {
+  .sidebar-content h1 {
+    font-size: 28px;
+    /* Reduz o tamanho do título */
+  }
+
+  .sidebar-content p,
+  .sidebar-footer p {
+    font-size: 16px;
+    /* Reduz o texto */
+  }
+
+  .sidebar-footer h2 {
+    font-size: 28px;
+    /* Reduz o subtítulo */
+  }
+}
