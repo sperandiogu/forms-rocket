@@ -45,7 +45,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
         formData.append("proofOfPayment", uploadedFile); // Adiciona o arquivo
       }
 
-      const response = await fetch("https://hook.us1.make.com/g4y47j7es1otxvcg2w9p35lm77m3fu9x", {
+      const response = await fetch("https://hook.us1.make.com/1e6w9scq4byw3wl5v5k08xwi5wgribxp", {
         method: "POST",
         body: formData,
       });
