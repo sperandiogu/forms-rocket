@@ -1,20 +1,87 @@
-.thank-you {
-  text-align: center;
-  margin: 50px auto;
-  max-width: 600px;
-  padding: 20px;
+/* Container principal */
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Espaça conteúdo principal e rodapé */
+  align-items: center;
+  width: 100%;
+  padding: 40px;
   background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
+  text-align: center;
 }
 
-.thank-you h1 {
-  font-size: 32px;
-  color: #4caf50;
+/* Conteúdo principal */
+.thank-you-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
 }
 
-.thank-you p {
+/* Ícone de sucesso */
+.thank-you-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+/* Título */
+.thank-you-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Mensagem */
+.thank-you-message {
   font-size: 18px;
-  color: #333;
-  margin-top: 10px;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Botão */
+.thank-you-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #476DF4; /* Azul */
+  color: #ffffff; /* Texto branco */
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Efeito ao passar o mouse */
+}
+
+.thank-you-button:hover {
+  background-color: #2196f3; /* Azul mais escuro */
+}
+
+/* Rodapé */
+.thank-you-footer {
+  font-size: 14px;
+  color: #999999;
+  margin-top: 40px;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  .thank-you-title {
+    font-size: 28px;
+  }
+
+  .thank-you-message {
+    font-size: 16px;
+  }
+
+  .thank-you-button {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
 }

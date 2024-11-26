@@ -1,20 +1,17 @@
+
+
 .app-container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh; /* Substituímos height por min-height para permitir maior flexibilidade */
   font-family: "Inter", serif;
-  /* Altura total da tela */
   flex-direction: row;
-  /* Por padrão, layout em linha */
-
+  background-color: #f9f9f9;
 }
 
 .sidebar {
-  flex: 0 0 30%;
-  /* Sidebar ocupa 30% da largura */
-  max-width: 520px;
-  /* Limite máximo da largura */
-  min-width: 250px;
-  /* Largura mínima para telas pequenas */
+  flex: 0 0 30%; /* Sidebar ocupa até 30% da largura */
+  max-width: 520px; /* Limite máximo da largura */
+  min-width: 250px; /* Largura mínima */
   background-color: #476df4;
   color: white;
   display: flex;
@@ -23,41 +20,46 @@
   padding: 40px;
 }
 
-.main-content {
-  flex: 1;
-  /* Ocupa o restante do espaço */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  background-color: #ffffff;
+
+.form-wrapper {
+  width: 100%;
+  max-width: 800px; /* Limita a largura do formulário */
+  padding: 20px;
+  margin: 0 auto; /* Centraliza no container */
 }
+
+
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
   .app-container {
-    flex-direction: column;
-    /* Empilha a sidebar acima do conteúdo */
-    height: auto;
-    /* Permite altura dinâmica */
+    flex-direction: column; /* Sidebar acima do conteúdo */
+    height: auto; /* Permite altura dinâmica */
   }
 
   .sidebar {
-    width: 100%;
-    /* Ocupa toda a largura */
-    max-width: none;
-    /* Remove o limite máximo */
-    min-width: unset;
-    /* Remove o limite mínimo */
-    height: auto;
-    /* Ajusta altura dinamicamente */
-    padding: 20px;
-    /* Reduz padding em telas pequenas */
+    width: 100%; /* Ocupa toda a largura */
+    max-width: none; /* Remove limite máximo */
+    min-width: unset; /* Remove limite mínimo */
+    height: auto; /* Ajusta altura dinamicamente */
+    padding: 20px; /* Reduz padding */
   }
 
   .main-content {
-    padding: 20px;
-    /* Reduz padding no conteúdo */
+    padding: 20px; /* Reduz padding no conteúdo */
+    max-width: 100%; /* Garante que o conteúdo se expanda */
+  }
+
+  .form-wrapper {
+    max-width: 100%; /* Remove limite no mobile */
+  }
+
+  .form-title {
+    font-size: 28px; /* Reduz tamanho no mobile */
+  }
+
+  .form-subtitle {
+    font-size: 14px; /* Reduz subtítulo no mobile */
+    max-width: 100%; /* Ajusta largura */
   }
 }

@@ -11,7 +11,7 @@ interface Step3Props {
 const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
   const navigate = useNavigate();
   const pixKey =
-    "00020126520014BR.GOV.BCB.PIX0130eventos@lagoinhajundiai.com.br5204000053039865406340.005802BR5901N6001C62140510RCKTCAMP256304DA2Fr";
+    "00020126520014BR.GOV.BCB.PIX0130eventos@lagoinhajundiai.com.br5204000053039865406340.005802BR5901N6001C62140510RCKTCAMP256304DA2F";
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -68,7 +68,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       <h1 className="form-title">Informações de pagamento</h1>
       <p className="form-subtitle">
         Escaneie o QR Code com o app do seu banco ou copie o código Pix para
-        concluir o pagamento.
+        concluir o pagamento, faço o envio do comprovante para confirmar sua inscrição!
       </p>
       <div className="qr-code-container">
         <img
@@ -85,7 +85,14 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
         </p>
       </div>
 
-      <div className="form-group">
+      <div className="form-button-group">
+        <button
+          type="button"
+          className="form-button copy"
+          onClick={copyPixKey}
+        >
+          Copiar Chave Pix
+        </button>
         <button
           type="button"
           className="form-button upload"
@@ -116,16 +123,6 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
             )}
           </div>
         )}
-      </div>
-
-      <div className="form-button-group">
-        <button
-          type="button"
-          className="form-button copy"
-          onClick={copyPixKey}
-        >
-          Copiar Chave Pix
-        </button>
         <button
           type="button"
           className="form-button next"
