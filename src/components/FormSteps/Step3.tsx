@@ -67,6 +67,9 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       <FormHeader />
       <h1 className="form-title">Informações de pagamento</h1>
       <p className="form-subtitle">
+        Valor 1º lote: R$ 340,00
+      </p>
+      <p className="form-subtitle">
         Escaneie o QR Code com o app do seu banco ou copie o código Pix para
         concluir o pagamento, faço o envio do comprovante para confirmar sua inscrição!
       </p>
