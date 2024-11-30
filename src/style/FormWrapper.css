@@ -246,3 +246,16 @@
   }
 
 }
+
+.error-message {
+  display: inline-block;
+  color: #ffffff; /* Cor do texto */
+  background-color: red; /* Cor de fundo para indicar erro */
+  padding: 0.5rem 1rem; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  font-size: 16px; /* Tamanho da fonte */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 0.5rem; /* Margem acima */
+  cursor: default; /* Cursor padrão (não clicável) */
+  border: none; /* Remove bordas adicionais */
+}

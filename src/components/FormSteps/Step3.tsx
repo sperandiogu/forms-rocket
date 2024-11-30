@@ -15,6 +15,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<boolean>(false);
 
   const copyPixKey = () => {
     navigator.clipboard
@@ -28,10 +29,16 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       const file = event.target.files[0];
       setUploadedFile(file);
       onFileUpload(file);
+      setFileError(false); // Remove o erro ao enviar o arquivo
     }
   };
 
   const handleFinish = async () => {
+    if (!uploadedFile) {
+      setFileError(true);
+      return;
+    }
+
     // Enviar os dados para o webhook
     try {
       const formData = new FormData();
@@ -41,14 +48,15 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       formData.append("guardianName", data.guardianName);
       formData.append("guardianPhone", data.guardianPhone);
       formData.append("medicalInfo", data.medicalInfo);
-      if (uploadedFile) {
-        formData.append("proofOfPayment", uploadedFile); // Adiciona o arquivo
-      }
+      formData.append("proofOfPayment", uploadedFile); // Adiciona o arquivo
 
-      const response = await fetch("https://hook.us1.make.com/1e6w9scq4byw3wl5v5k08xwi5wgribxp", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://hook.us1.make.com/mj3o5dqf3395kec2ddshqwcyryhjofgs",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Erro ao enviar os dados para o webhook.");
@@ -71,7 +79,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       </p>
       <p className="form-subtitle">
         Escaneie o QR Code com o app do seu banco ou copie o código Pix para
-        concluir o pagamento, faço o envio do comprovante para confirmar sua inscrição!
+        concluir o pagamento, faça o envio do comprovante para confirmar sua inscrição!
       </p>
       <div className="qr-code-container">
         <img
@@ -125,6 +133,11 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
               </p>
             )}
           </div>
+        )}
+        {fileError && (
+          <p className="error-message">
+            É obrigatório enviar o comprovante de pagamento.
+          </p>
         )}
         <button
           type="button"
