@@ -39,16 +39,15 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       return;
     }
 
-    // Enviar os dados para o webhook
     try {
       const formData = new FormData();
-      formData.append("name", data.name);
-      formData.append("birthDate", data.birthDate);
-      formData.append("phone", data.phone);
-      formData.append("guardianName", data.guardianName);
-      formData.append("guardianPhone", data.guardianPhone);
-      formData.append("medicalInfo", data.medicalInfo);
-      formData.append("proofOfPayment", uploadedFile); // Adiciona o arquivo
+      formData.append("name", data.name || ""); // Certifique-se de que os valores estão corretos
+      formData.append("birthDate", data.birthDate || "");
+      formData.append("phone", data.phone || "");
+      formData.append("guardianName", data.guardianName || "");
+      formData.append("guardianPhone", data.guardianPhone || "");
+      formData.append("medicalInfo", data.medicalInfo || "");
+      formData.append("proofOfPayment", uploadedFile);
 
       const response = await fetch(
         "https://hook.us1.make.com/mj3o5dqf3395kec2ddshqwcyryhjofgs",
@@ -59,14 +58,15 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       );
 
       if (!response.ok) {
+        const errorMessage = await response.text(); // Captura a mensagem de erro do servidor
+        console.error("Erro:", errorMessage);
         throw new Error("Erro ao enviar os dados para o webhook.");
       }
 
-      // Redireciona para a página de "Obrigado" após o envio bem-sucedido
       navigate("/obrigado");
     } catch (error) {
       console.error(error);
-      alert("Ocorreu um erro ao finalizar a inscrição. Tente novamente.");
+      alert("Ocorreu um erro ao finalizar a inscrição. Verifique os dados e tente novamente.");
     }
   };
 
