@@ -23,12 +23,12 @@
   /* Centraliza o título */
 }
 
-.form-title b{
+.form-title b {
   font-weight: 900;
 }
 
 .form-subtitle {
-  font-size: 19px;
+  font-size: 16px;
   color: #262626;
   margin-bottom: 35px;
   text-align: left;
@@ -54,6 +54,10 @@
   background-color: #f9f9f9;
 }
 
+.form-group label {
+  padding-bottom: 15px;
+}
+
 .form-button-group {
   display: flex;
   flex-direction: column;
@@ -66,17 +70,23 @@
 
 .qr-code-container {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  justify-content: center;
+  /* Centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
   width: 100%;
-  margin: 20px 0; /* Espaçamento superior e inferior */
+  margin: 20px 0;
+  /* Espaçamento superior e inferior */
 }
 
 /* Estilo da imagem do QR Code */
 .qr-code-image {
-  max-width: 300px; /* Limita a largura no desktop */
-  width: 100%; /* Responsivo */
-  height: auto; /* Mantém a proporção */
+  max-width: 300px;
+  /* Limita a largura no desktop */
+  width: 100%;
+  /* Responsivo */
+  height: auto;
+  /* Mantém a proporção */
   border: 1px solid #cccccc;
   border-radius: 8px;
   padding: 10px;
@@ -88,7 +98,8 @@
   color: #333333;
   line-height: 1.5;
   word-wrap: break-word;
-  overflow-wrap: break-word; /* Quebra texto longo */
+  overflow-wrap: break-word;
+  /* Quebra texto longo */
   text-align: center;
   margin: 20px 0;
 }
@@ -111,7 +122,8 @@
 
 /* Botão de upload de comprovante */
 .form-button.upload {
-  background: #2196f3; /* Azul */
+  background: #2196f3;
+  /* Azul */
   color: #ffffff;
   margin-bottom: 35px;
 }
@@ -205,7 +217,8 @@
   }
 
   .qr-code img {
-    max-width: 80%; /* QR Code menor em telas menores */
+    max-width: 80%;
+    /* QR Code menor em telas menores */
   }
 
   .form-button {
@@ -249,13 +262,22 @@
 
 .error-message {
   display: inline-block;
-  color: #ffffff; /* Cor do texto */
-  background-color: red; /* Cor de fundo para indicar erro */
-  padding: 0.5rem 1rem; /* Espaçamento interno */
-  border-radius: 5px; /* Bordas arredondadas */
-  font-size: 16px; /* Tamanho da fonte */
-  text-align: center; /* Centraliza o texto */
-  margin-top: 0.5rem; /* Margem acima */
-  cursor: default; /* Cursor padrão (não clicável) */
-  border: none; /* Remove bordas adicionais */
+  color: #ffffff;
+  /* Cor do texto */
+  background-color: red;
+  /* Cor de fundo para indicar erro */
+  padding: 0.5rem 1rem;
+  /* Espaçamento interno */
+  border-radius: 5px;
+  /* Bordas arredondadas */
+  font-size: 16px;
+  /* Tamanho da fonte */
+  text-align: center;
+  /* Centraliza o texto */
+  margin-top: 0.5rem;
+  /* Margem acima */
+  cursor: default;
+  /* Cursor padrão (não clicável) */
+  border: none;
+  /* Remove bordas adicionais */
 }
