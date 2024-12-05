@@ -10,9 +10,30 @@ interface Step1Props {
 const Step1: React.FC<Step1Props> = ({ data, setData, onNext }) => {
   const [errors, setErrors] = useState({ name: false, birthDate: false, phone: false });
 
+  const formatPhoneNumber = (phone: string) => {
+    let formattedPhone = phone.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+    if (!formattedPhone.startsWith('55')) {
+      formattedPhone = '55' + formattedPhone; // Adiciona o DDI do Brasil se não estiver presente
+    }
+
+    formattedPhone = formattedPhone
+      .replace(/^55(\d{2})(\d)/, '+55 ($1) $2') // Formata com o DDI e DDD
+      .replace(/(\d{4,5})(\d{4})$/, '$1-$2'); // Adiciona o traço no final
+
+    return formattedPhone;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: false }); // Remove erro ao digitar
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      setData({ ...data, [name]: formatPhoneNumber(value) }); // Aplica a formatação com DDI
+    } else {
+      setData({ ...data, [name]: value });
+    }
+
+    setErrors({ ...errors, [name]: false }); // Remove erro ao digitar
   };
 
   const handleNext = () => {
