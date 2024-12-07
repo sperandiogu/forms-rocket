@@ -111,7 +111,7 @@
 
 .pix-key p {
   font-size: 16px;
-  color: #333333;
+  color: #fafafa;
   line-height: 1.5;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -251,14 +251,14 @@
   }
 
   .form-button.next {
-    background: var(--check, #3EAF3F);
+    background: var(--check, #670505);
     /* Cor do botão "Próximo" */
     color: #ffffff;
     /* Texto branco */
   }
 
   .form-button.next:hover {
-    background: #369c37;
+    background: #A10000;
     /* Cor ao passar o mouse */
   }
 
