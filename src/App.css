@@ -1,19 +1,23 @@
-
-
 .app-container {
   display: flex;
-  min-height: 100vh; /* Substituímos height por min-height para permitir maior flexibilidade */
-  font-family: "Inter", serif;
+  min-height: 100vh;
+  /* Substituímos height por min-height para permitir maior flexibilidade */
+  font-family: "owners", serif;
   flex-direction: row;
-  background-color: #f9f9f9;
+  background-color: #1D1D18;
 }
 
 .sidebar {
-  flex: 0 0 30%; /* Sidebar ocupa até 30% da largura */
-  max-width: 520px; /* Limite máximo da largura */
-  min-width: 250px; /* Largura mínima */
-  background-color: #476df4;
+  flex: 0 0 30%;
+  /* Sidebar ocupa até 30% da largura */
+  max-width: 520px;
+  /* Limite máximo da largura */
+  min-width: 250px;
+  /* Largura mínima */
+  background-image: url(../public/imgs/bg-side.png);
+  background-size: cover;
   color: white;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,9 +27,11 @@
 
 .form-wrapper {
   width: 100%;
-  max-width: 800px; /* Limita a largura do formulário */
+  max-width: 800px;
+  /* Limita a largura do formulário */
   padding: 20px;
-  margin: 0 auto; /* Centraliza no container */
+  margin: 0 auto;
+  /* Centraliza no container */
 }
 
 
@@ -33,33 +39,46 @@
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
   .app-container {
-    flex-direction: column; /* Sidebar acima do conteúdo */
-    height: auto; /* Permite altura dinâmica */
+    flex-direction: column;
+    /* Sidebar acima do conteúdo */
+    height: auto;
+    /* Permite altura dinâmica */
   }
 
   .sidebar {
-    width: 100%; /* Ocupa toda a largura */
-    max-width: none; /* Remove limite máximo */
-    min-width: unset; /* Remove limite mínimo */
-    height: auto; /* Ajusta altura dinamicamente */
-    padding: 20px; /* Reduz padding */
+    width: 100%;
+    /* Ocupa toda a largura */
+    max-width: none;
+    /* Remove limite máximo */
+    min-width: unset;
+    /* Remove limite mínimo */
+    height: auto;
+    /* Ajusta altura dinamicamente */
+    padding: 20px;
+    /* Reduz padding */
   }
 
   .main-content {
-    padding: 20px; /* Reduz padding no conteúdo */
-    max-width: 100%; /* Garante que o conteúdo se expanda */
+    padding: 20px;
+    /* Reduz padding no conteúdo */
+    max-width: 100%;
+    /* Garante que o conteúdo se expanda */
   }
 
   .form-wrapper {
-    max-width: 100%; /* Remove limite no mobile */
+    max-width: 100%;
+    /* Remove limite no mobile */
   }
 
   .form-title {
-    font-size: 28px; /* Reduz tamanho no mobile */
+    font-size: 28px;
+    /* Reduz tamanho no mobile */
   }
 
   .form-subtitle {
-    font-size: 14px; /* Reduz subtítulo no mobile */
-    max-width: 100%; /* Ajusta largura */
+    font-size: 14px;
+    /* Reduz subtítulo no mobile */
+    max-width: 100%;
+    /* Ajusta largura */
   }
 }

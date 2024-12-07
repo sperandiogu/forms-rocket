@@ -4,8 +4,9 @@
 }
 
 .sidebar-logo img {
-  width: 120px;
-  height: auto; /* Ajusta proporcionalmente */
+  width: 200px;
+  height: auto;
+  /* Ajusta proporcionalmente */
 }
 
 .sidebar-content h1 {
@@ -37,18 +38,21 @@
 /* Ajustes em telas menores */
 @media (max-width: 768px) {
   .sidebar-content h1 {
-    font-size: 28px; /* Reduz o tamanho do título */
+    font-size: 28px;
+    /* Reduz o tamanho do título */
     text-align: center;
   }
 
   .sidebar-content p,
   .sidebar-footer p {
-    font-size: 16px; /* Reduz o texto */
+    font-size: 16px;
+    /* Reduz o texto */
     text-align: center;
   }
 
   .sidebar-footer h2 {
-    font-size: 28px; /* Reduz o subtítulo */
+    font-size: 28px;
+    /* Reduz o subtítulo */
     text-align: center;
   }
 }

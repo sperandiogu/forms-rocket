@@ -6,6 +6,7 @@
   padding: 40px;
   width: 100%;
   margin-top: 50px;
+  text-transform: uppercase;
   /* Garante que ocupa todo o espaço disponível */
 }
 
@@ -17,9 +18,9 @@
 
 .form-title {
   font-size: 36px;
-  font-weight: 900;
   margin-bottom: 35px;
   text-align: left;
+  color: #fafafa;
   /* Centraliza o título */
 }
 
@@ -29,9 +30,10 @@
 
 .form-subtitle {
   font-size: 16px;
-  color: #262626;
+  color: #FAFAFA;
   margin-bottom: 35px;
   text-align: left;
+  text-transform: none;
   /* Centraliza o subtítulo */
 }
 
@@ -43,19 +45,33 @@
   /* Faz o input ocupar toda a largura disponível */
 }
 
+.form-group input::placeholder {
+  color: #4E4E4E;
+}
+
+.form-group input:focus {
+  background-color: #282828;
+  color: #BDBDBD;
+  border-color: #4E4E4E;
+  box-shadow: 0 0 0 .25rem #4E4E4E;
+}
+
 .form-group input {
   height: 70px;
   padding: 20px 34px;
-  border: 1px solid #cccccc;
+  border: none;
   border-radius: 8px;
   font-size: 16px;
   width: 100%;
   /* Ajusta o input ao tamanho disponível */
-  background-color: #f9f9f9;
+  background-color: #282828;
+  color: #4E4E4E;
 }
 
 .form-group label {
   padding-bottom: 15px;
+  color: #fafafa;
+  text-transform: none;
 }
 
 .form-button-group {
@@ -147,26 +163,26 @@
 }
 
 .form-button.next {
-  background: var(--check, #3EAF3F);
+  background: var(--check, #670505);
   /* Cor do botão "Próximo" */
   color: #ffffff;
   /* Texto branco */
 }
 
 .form-button.next:hover {
-  background: #369c37;
+  background: #A10000;
   /* Cor ao passar o mouse */
 }
 
 .form-button.previous {
-  background: #e0e0e0;
+  background: #525252;
   /* Cor do botão "Voltar" */
   color: #333333;
   /* Texto preto */
 }
 
 .form-button.previous:hover {
-  background: #d6d6d6;
+  background: #131313;
   /* Cor ao passar o mouse */
 }
 
@@ -247,7 +263,7 @@
   }
 
   .form-button.previous {
-    background: #e0e0e0;
+    background: #525252;
     /* Cor do botão "Voltar" */
     color: #333333;
     /* Texto preto */
