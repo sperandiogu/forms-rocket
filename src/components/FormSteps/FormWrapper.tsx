@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../style/FormWrapper.css";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -13,7 +13,25 @@ const FormWrapper: React.FC = () => {
     guardianName: "",
     guardianPhone: "",
     medicalInfo: "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
   });
+
+  // Captura as UTMs da URL na montagem do componente
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setFormData((prevData) => ({
+      ...prevData,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+    }));
+  }, []);
 
   const handleNext = () => {
     setCurrentStep((prev) => Math.min(prev + 1, 3)); // Avança até o último step

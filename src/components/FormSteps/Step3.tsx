@@ -1,9 +1,21 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Para navegação
+import { useNavigate } from "react-router-dom";
 import FormHeader from "../FormHeader";
 
 interface Step3Props {
-  data: any; // Dados coletados dos steps
+  data: {
+    name: string;
+    birthDate: string;
+    phone: string;
+    guardianName: string;
+    guardianPhone: string;
+    medicalInfo: string;
+    utm_source: string;
+    utm_medium: string;
+    utm_campaign: string;
+    utm_term: string;
+    utm_content: string;
+  };
   onPrevious: () => void;
   onFileUpload: (file: File) => void;
 }
@@ -29,7 +41,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       const file = event.target.files[0];
       setUploadedFile(file);
       onFileUpload(file);
-      setFileError(false); // Remove o erro ao enviar o arquivo
+      setFileError(false);
     }
   };
 
@@ -41,13 +53,20 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
 
     try {
       const formData = new FormData();
-      formData.append("name", data.name || ""); // Certifique-se de que os valores estão corretos
-      formData.append("birthDate", data.birthDate || "");
-      formData.append("phone", data.phone || "");
-      formData.append("guardianName", data.guardianName || "");
-      formData.append("guardianPhone", data.guardianPhone || "");
-      formData.append("medicalInfo", data.medicalInfo || "");
+      formData.append("name", data.name);
+      formData.append("birthDate", data.birthDate);
+      formData.append("phone", data.phone);
+      formData.append("guardianName", data.guardianName);
+      formData.append("guardianPhone", data.guardianPhone);
+      formData.append("medicalInfo", data.medicalInfo);
       formData.append("proofOfPayment", uploadedFile);
+
+      // Adicionar os parâmetros UTM
+      formData.append("utm_source", data.utm_source);
+      formData.append("utm_medium", data.utm_medium);
+      formData.append("utm_campaign", data.utm_campaign);
+      formData.append("utm_term", data.utm_term);
+      formData.append("utm_content", data.utm_content);
 
       const response = await fetch(
         "https://hook.us1.make.com/mj3o5dqf3395kec2ddshqwcyryhjofgs",
@@ -58,7 +77,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       );
 
       if (!response.ok) {
-        const errorMessage = await response.text(); // Captura a mensagem de erro do servidor
+        const errorMessage = await response.text();
         console.error("Erro:", errorMessage);
         throw new Error("Erro ao enviar os dados para o webhook.");
       }
