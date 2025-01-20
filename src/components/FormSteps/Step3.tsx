@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../style/spinner.css"; // Certifique-se de importar o CSS para o modal e o spinner
 import FormHeader from "../FormHeader";
 
 interface Step3Props {
@@ -28,6 +29,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const copyPixKey = () => {
     navigator.clipboard
@@ -51,6 +53,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       return;
     }
 
+    setIsLoading(true); // Exibe o modal
     try {
       const formData = new FormData();
       formData.append("name", data.name);
@@ -82,10 +85,12 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
         throw new Error("Erro ao enviar os dados para o webhook.");
       }
 
-      navigate("/obrigado");
+      navigate("/obrigado"); // Redireciona após o sucesso
     } catch (error) {
       console.error(error);
       alert("Ocorreu um erro ao finalizar a inscrição. Verifique os dados e tente novamente.");
+    } finally {
+      setIsLoading(false); // Oculta o modal
     }
   };
 
@@ -93,9 +98,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
     <form className="form-wrapper step3-form">
       <FormHeader />
       <h1 className="form-title">Informações de pagamento</h1>
-      <p className="form-subtitle">
-        Valor 1º lote: R$ 340,00
-      </p>
+      <p className="form-subtitle">Valor 1º lote: R$ 340,00</p>
       <p className="form-subtitle">
         Escaneie o QR Code com o app do seu banco ou copie o código Pix para
         concluir o pagamento, faça o envio do comprovante para confirmar sua inscrição!
@@ -120,6 +123,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
           type="button"
           className="form-button copy"
           onClick={copyPixKey}
+          disabled={isLoading} // Desativa enquanto carrega
         >
           Copiar Chave Pix
         </button>
@@ -127,6 +131,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
           type="button"
           className="form-button upload"
           onClick={() => fileInputRef.current?.click()}
+          disabled={isLoading} // Desativa enquanto carrega
         >
           Enviar Comprovante
         </button>
@@ -162,6 +167,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
           type="button"
           className="form-button next"
           onClick={handleFinish}
+          disabled={isLoading} // Desativa enquanto carrega
         >
           Finalizar Inscrição
         </button>
@@ -169,10 +175,21 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
           type="button"
           className="form-button previous"
           onClick={onPrevious}
+          disabled={isLoading} // Desativa enquanto carrega
         >
           ← Voltar
         </button>
       </div>
+
+      {/* Modal com spinner e texto */}
+      {isLoading && (
+        <div className="modal">
+          <div className="modal-box">
+            <div className="spinner"></div>
+            <p className="modal-text">Carregando... Por favor, aguarde.</p>
+          </div>
+        </div>
+      )}
     </form>
   );
 };
