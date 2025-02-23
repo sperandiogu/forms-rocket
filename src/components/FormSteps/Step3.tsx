@@ -72,7 +72,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       formData.append("utm_content", data.utm_content);
 
       const response = await fetch(
-        "https://hook.us1.make.com/mj3o5dqf3395kec2ddshqwcyryhjofgs",
+        "https://hook.us1.make.com/ojrvtxf3x1uu5ahl8xw9dp8csimsigzx",
         {
           method: "POST",
           body: formData,
