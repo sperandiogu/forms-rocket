@@ -5,11 +5,11 @@ const FormHeader: React.FC = () => {
   return (
     <div className="form-header">
       <h1 className="form-title">
-        <b>RCKT CAMP 2025 | </b>Se prepare para o <b>AVIVAMENTO</b>
+        <b>RCKT CAMP XXVI | </b>Aquele que <b>BUSCAM</b>
       </h1>
-      <p className="form-subtitle">Nosso acampamento acontecerá do dia 07 ao 09 de março.
+      <p className="form-subtitle">Nosso acampamento acontecerá do dia XX ao XX de XXXXX.
       </p>
-      <p className="form-subtitle"><b>Primeiro lote:</b> <span>R$</span> 340<span>,00</span>
+      <p className="form-subtitle"><b>Primeiro lote:</b> <span>R$</span> 380<span>,00</span>
       </p>
       <p className="form-subtitle">
         Viveremos coisas incríveis e precisamos que você preencha todas as

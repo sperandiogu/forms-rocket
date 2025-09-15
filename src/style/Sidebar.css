@@ -13,11 +13,12 @@
   font-size: 36px;
   font-weight: 900;
   margin-bottom: 10px;
+  color: #051656;
 }
 
 .sidebar-content p {
   font-size: 18px;
-  color: #dcdcdc;
+  color: #051656;
 }
 
 .sidebar-footer {

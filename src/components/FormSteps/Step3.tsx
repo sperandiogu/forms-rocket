@@ -24,7 +24,7 @@ interface Step3Props {
 const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
   const navigate = useNavigate();
   const pixKey =
-    "00020126520014BR.GOV.BCB.PIX0130eventos@lagoinhajundiai.com.br5204000053039865406340.005802BR5901N6001C62140510RCKTCAMP256304DA2F";
+    "00020126520014BR.GOV.BCB.PIX0130eventos@lagoinhajundiai.com.br5204000053039865406380.005802BR5916Lagoinha Jundiai6007Jundiai62120508RCKTCAMP63044A87";
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -72,7 +72,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       formData.append("utm_content", data.utm_content);
 
       const response = await fetch(
-        "https://hook.us1.make.com/ojrvtxf3x1uu5ahl8xw9dp8csimsigzx",
+        "https://primary-production-0c5d.up.railway.app/webhook-test/rckt",
         {
           method: "POST",
           body: formData,
@@ -98,7 +98,7 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
     <form className="form-wrapper step3-form">
       <FormHeader />
       <h1 className="form-title">Informações de pagamento</h1>
-      <p className="form-subtitle">Valor 1º lote: R$ 340,00</p>
+      <p className="form-subtitle">Valor 1º lote: R$ 380,00</p>
       <p className="form-subtitle">
         Escaneie o QR Code com o app do seu banco ou copie o código Pix para
         concluir o pagamento, faça o envio do comprovante para confirmar sua inscrição!

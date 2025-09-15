@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
       </div>
       <div className="sidebar-content">
         <h1>BEM-VINDOS!</h1>
-        <p>Faça agora sua inscrição para o RCKT CAMP 25</p>
+        <p>Faça agora sua inscrição para o RCKT CAMP XXVI</p>
       </div>
     </div>
   );

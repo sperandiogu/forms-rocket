@@ -4,7 +4,7 @@
   /* Substituímos height por min-height para permitir maior flexibilidade */
   font-family: "owners", serif;
   flex-direction: row;
-  background-color: #1D1D18;
+  background-color: #fafafa;
 }
 
 .sidebar {

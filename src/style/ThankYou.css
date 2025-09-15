@@ -7,7 +7,7 @@
   align-items: center;
   width: 100%;
   padding: 40px;
-  background-color: #1d1d18;
+  background-color: #fafafa;
   font-family: "owners", sans-serif;
   text-align: center;
 }
@@ -34,14 +34,14 @@
   font-size: 36px;
   font-weight: 900;
   text-transform: uppercase;
-  color: #fafafa;
+  color: #051656;
   margin-bottom: 20px;
 }
 
 /* Mensagem */
 .thank-you-message {
   font-size: 18px;
-  color: #fafafa;
+  color: #051656;
   line-height: 1.6;
   margin-bottom: 40px;
   max-width: 500px;
@@ -52,7 +52,7 @@
 .thank-you-button {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #670505;
+  background-color: #051656;
   /* Azul */
   color: #ffffff;
   /* Texto branco */

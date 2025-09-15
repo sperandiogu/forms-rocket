@@ -13,7 +13,7 @@ const ThankYou: React.FC = () => {
         <h1 className="thank-you-title">Obrigado!</h1>
         <p className="thank-you-message">
           Recebemos seu cadastro e estamos animados para vê-lo no RCKT CAMP
-          2025!
+          XXVI!
         </p>
         <p className="thank-you-message">
           Você receberá uma notificação no seu celular assim que sua inscrição for aprovada!

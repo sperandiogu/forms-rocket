@@ -20,7 +20,7 @@
   font-size: 36px;
   margin-bottom: 35px;
   text-align: left;
-  color: #fafafa;
+  color: #051656;
   /* Centraliza o título */
 }
 
@@ -30,7 +30,7 @@
 
 .form-subtitle {
   font-size: 16px;
-  color: #FAFAFA;
+  color: #051656;
   margin-bottom: 35px;
   text-align: left;
   text-transform: none;
@@ -46,14 +46,14 @@
 }
 
 .form-group input::placeholder {
-  color: #4E4E4E;
+  color: #051656;
 }
 
 .form-group input:focus {
-  background-color: #282828;
-  color: #BDBDBD;
-  border-color: #4E4E4E;
-  box-shadow: 0 0 0 .25rem #4E4E4E;
+  background-color: #7d8dc7;
+  color: #fafafa;
+  border-color: #051656;
+  box-shadow: 0 0 0 .25rem #7d8dc7;
 }
 
 .form-group input {
@@ -64,13 +64,13 @@
   font-size: 16px;
   width: 100%;
   /* Ajusta o input ao tamanho disponível */
-  background-color: #282828;
+  background-color: #f1f1f1;
   color: #4E4E4E;
 }
 
 .form-group label {
   padding-bottom: 15px;
-  color: #fafafa;
+  color: #051656;
   text-transform: none;
 }
 
@@ -111,7 +111,7 @@
 
 .pix-key p {
   font-size: 16px;
-  color: #fafafa;
+  color: #051656;
   line-height: 1.5;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -163,26 +163,26 @@
 }
 
 .form-button.next {
-  background: var(--check, #670505);
+  background: var(--check, #051656);
   /* Cor do botão "Próximo" */
   color: #ffffff;
   /* Texto branco */
 }
 
 .form-button.next:hover {
-  background: #A10000;
+  background: #07164b;
   /* Cor ao passar o mouse */
 }
 
 .form-button.previous {
-  background: #525252;
+  background: #7d8dc7;
   /* Cor do botão "Voltar" */
-  color: #333333;
+  color: #FAFAFA;
   /* Texto preto */
 }
 
 .form-button.previous:hover {
-  background: #131313;
+  background: #7d8dc7;
   /* Cor ao passar o mouse */
 }
 
@@ -251,26 +251,26 @@
   }
 
   .form-button.next {
-    background: var(--check, #670505);
+    background: var(--check, #051656);
     /* Cor do botão "Próximo" */
     color: #ffffff;
     /* Texto branco */
   }
 
   .form-button.next:hover {
-    background: #A10000;
+    background: #07164b;
     /* Cor ao passar o mouse */
   }
 
   .form-button.previous {
-    background: #525252;
+    background: #7d8dc7;
     /* Cor do botão "Voltar" */
-    color: #333333;
+    color: #fafafa;
     /* Texto preto */
   }
 
   .form-button.previous:hover {
-    background: #d6d6d6;
+    background: #7d8dc7;
     /* Cor ao passar o mouse */
   }
 
