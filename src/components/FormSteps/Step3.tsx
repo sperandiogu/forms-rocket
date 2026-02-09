@@ -99,6 +99,9 @@ const Step3: React.FC<Step3Props> = ({ data, onPrevious, onFileUpload }) => {
       <FormHeader />
       <h1 className="form-title">Informações de pagamento</h1>
       <p className="form-subtitle">Valor 1º lote: R$ 380,00</p>
+      <div className="transport-warning">
+        ⚠️ ATENÇÃO: Transporte não disponível para este evento
+      </div>
       <p className="form-subtitle">
         Escaneie o QR Code com o app do seu banco ou copie o código Pix para
         concluir o pagamento, faça o envio do comprovante para confirmar sua inscrição!

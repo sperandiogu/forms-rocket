@@ -11,17 +11,25 @@ const Step1: React.FC<Step1Props> = ({ data, setData, onNext }) => {
   const [errors, setErrors] = useState({ name: false, birthDate: false, phone: false });
 
   const formatPhoneNumber = (phone: string) => {
-    let formattedPhone = phone.replace(/\D/g, ''); // Remove caracteres não numéricos
+    let numbers = phone.replace(/\D/g, '');
 
-    if (!formattedPhone.startsWith('55')) {
-      formattedPhone = '55' + formattedPhone; // Adiciona o DDI do Brasil se não estiver presente
+    if (!numbers.startsWith('55')) {
+      numbers = '55' + numbers;
     }
 
-    formattedPhone = formattedPhone
-      .replace(/^55(\d{2})(\d)/, '+55 ($1) $2') // Formata com o DDI e DDD
-      .replace(/(\d{4,5})(\d{4})$/, '$1-$2'); // Adiciona o traço no final
-
-    return formattedPhone;
+    if (numbers.length <= 4) {
+      return numbers.replace(/^(\d{0,2})/, '+$1');
+    } else if (numbers.length <= 6) {
+      return numbers.replace(/^(\d{2})(\d{0,2})/, '+$1 ($2');
+    } else if (numbers.length <= 7) {
+      return numbers.replace(/^(\d{2})(\d{2})(\d{0,1})/, '+$1 ($2) $3');
+    } else if (numbers.length <= 11) {
+      return numbers.replace(/^(\d{2})(\d{2})(\d{0,5})/, '+$1 ($2) $3');
+    } else if (numbers.length <= 12) {
+      return numbers.replace(/^(\d{2})(\d{2})(\d{4})(\d{0,4})/, '+$1 ($2) $3-$4');
+    } else {
+      return numbers.replace(/^(\d{2})(\d{2})(\d{5})(\d{0,4})/, '+$1 ($2) $3-$4');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
